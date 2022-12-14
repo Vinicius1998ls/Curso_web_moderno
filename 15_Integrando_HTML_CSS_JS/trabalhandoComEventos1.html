@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Trabalhando com Eventos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <!-- onclick="navegarEm5s(event)" chama a função -->
+        <!-- onclick="navegarEm5s(event)" -->
+        <a espera-um-pouco href="https://google.com.br">Google</a>
+    </div>
+    <script>
+        // passa como parametro o evento 'onclick'
+        function navegarEm5s(e) {
+            e.preventDefault() // impede que o comportamento padrão ocorra
+            console.log('Saindo em 5s...')
+            // define o tempo
+            setTimeout(() => {
+                // pega o link dentro de <a> e atribui a variavel
+                const link = e.target
+                //substitui o link atual pelo oque esta dentro da viariavel
+                window.location.href = link.href
+            }, 5000)
+        }
+
+        // const a = document.querySelector('a')
+        // // coloca em a o event e chama a função
+        // a.onclick = navegarEm5s
+
+        // browser ignora atributos
+        const a = document.querySelector('[espera-um-pouco]')
+        a.onclick = navegarEm5s
+    </script>
+</body>

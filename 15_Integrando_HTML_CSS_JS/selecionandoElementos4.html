@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #04</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+
+<body class="conteudo exercicio">
+    <div>
+        <p>Início</p>
+    </div>
+    <div>
+        <ul>
+            <li>Pedro</li>
+            <li>Ana</li>
+            <li>Bia</li>
+        </ul>
+    </div>
+    <div>
+        <p>Fim</p>
+    </div>
+    <script>
+        function log() {
+            console.log(this)
+        }
+
+        HTMLCollection.prototype.log = log
+        HTMLElement.prototype.log = log
+        NodeList.prototype.log = log
+        Node.prototype.log = log
+
+        // seleciona oque tem div e ul e passa para lista
+        const lista = document.querySelector('div ul')
+        lista.parentNode.log() // imprime na tela o pai
+        lista.childNodes.log() // imprime o filho
+
+        //pega o primeiro filho
+        const primeiro = lista.firstChild
+        primeiro.log() // imprime texto, espeço entre ul e li
+        primeiro.nextSibling.log() // pega o proximo filho, li pedro li
+
+        const ultimo = lista.lastChild //pega o ultimo filho
+        ultimo.log() // imprime texto
+        ultimo.previousSibling.log() //imprime o proximo filho, li bia li
+
+        lista.children.log() //imprime os li
+        lista.firstElementChild.log() // imprime primeiro li
+        lista.lastElementChild.log() // imprime o ultimo li
+        //imprime o elemento anterior, no caso a div que tem inicio dentro
+        lista.parentNode.previousElementSibling.log()
+        //imprime o proximo elemento, no caso a div que tem fim dentro
+        lista.parentNode.nextElementSibling.log()
+
+        document.querySelectorAll('div ul li').log()
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #02</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo"><span wb-attrib>.terceiro .ultimo</span></div>
+    <script>
+        // seleciona id, por causa da #, com valor primeiro
+        //aplica o estilo 'destaque'              
+        document.querySelector('#primeiro').classList.add('destaque')
+
+        // cria um função selecionar
+        // quando a função for chamada vai receber um ou mais parametros,
+        // exemplo selecionar(div)
+        // esses parametros vão ser trabalhados como seletor
+        const Selecionar = seletor =>
+            //vai selecionar oque estiver dentro de seletor
+            // vai percorrer com 'forEach' e aplicar o estilo 'destaque'
+            document.querySelectorAll(seletor).forEach(e => e.classList.add('destaque'))
+        // cria um função deselecionar
+        const deselecionar = seletor =>
+            // vai percorrer com 'forEach' e remover o estilo 'destaque'
+            document.querySelectorAll(seletor).forEach(e => e.classList.remove('destaque'))
+
+            //chama a função selecionar e passa como parametro a tag 'div'
+            // marca todas as div
+            Selecionar('div')
+
+            //passa como parametro o seletor universal para remover o estilo 'destaque'
+            deselecionar('*')
+            //seleciona oque tem as duas classes
+            Selecionar('.terceiro.ultimo')
+
+            deselecionar('*')
+            // seleciona tudo com excessao do id primeiro
+            //';not' = exceção
+            Selecionar(':not(#primeiro)')
+
+            deselecionar('*')
+            //seleciona o primeiro filho dentro do body | div primeiro e atributo wv-attrib
+            Selecionar(':nth-child(1')
+
+            deselecionar('*')
+            //seleciona o primeiro elemento do tipo 'div'
+            Selecionar('div:nth-of-type(1)')
+
+            deselecionar('*')
+            // seleciona oque tem o atributo 'wb-attrib'
+            Selecionar('[wb-attrib]')
+
+    </script>
+</body>
+</html>

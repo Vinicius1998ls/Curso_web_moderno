@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Selecionar Elementos #01</title>
+    <link rel="stylesheet" href="css/estilo.css">
+</head>
+<body class="conteudo exercicio">
+    <div id="primeiro">#primeiro</div>
+    <div>Segundo</div>
+    <div class="terceiro ultimo">.terceiro .ultimo</div>
+    <script>
+        // seleciona um elemento pelo id || aplica um estilo              
+        document.getElementById('primeiro').classList.add('destaque')
+
+        // cria uma constante chamada 'divs' || 
+        //seleciona os elementos do tipo tag, exemplo UL, NAV, BODY ||
+        // a constante 'divs' recebe como valor as tags 'div'
+        // 'divs' vira um htmlcollections
+        const divs = document.getElementsByTagName('div')
+        //faz uma lista/array do que está dentro da contante 'divs' ||
+        // percorre todos os elementos da lista e remove o estilo 'destaque'
+        Array.from(divs).forEach(e => e.classList.remove('destaque'))
+
+        // espalha os elementos dentro de div para o nova lista/array 'divsArray'
+        const divsArray = [...divs]
+        //percorre todos os elementos do array divsArray ||
+        // para cada um adiciona o estilo 'destaque'
+        divsArray.forEach(e => e.classList.add('destaque'))
+
+        // pega todos elementos com a classe 'ultimo'
+        // passa esses elementos para contante 'ultimosElementos'
+        const ultimoElementos = document.getElementsByClassName('ultimo')
+        //percorre os valores dentro de 'ultimoElementos' 
+        // passa o valor para variavel 'e'
+        for(let e of ultimoElementos) {
+            //remove o estilo 'destaque' da variavel 'e'
+            e.classList.remove('destaque')
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>CSS Grid #03</title>
+    <link rel="stylesheet" href="css/tag.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        header {
+            grid-area: cabecalho; /*nomeia as areas*/
+        }
+
+        nav {
+            grid-area: navegacao;
+        }
+
+        main {
+            grid-area: conteudo;
+        }
+
+        footer {
+            grid-area: rodape;
+        }
+
+        body {
+            display: grid;
+            min-height: 100vh; /*ocupa a altura inteira*/
+            grid-template-columns: 300px 1fr; /*duas colunas*/
+            grid-template-rows: 100px 1fr 100px; /*tres linhas*/
+            grid-template-areas: 
+                'cabecalho cabecalho' /*cabecalho vai ocupar as duas colunas|caso tirar 1 vai dar erro*/
+                'navegacao conteudo'
+                'rodape rodape';
+        }
+
+        /* adaptação para mobile */
+        @media(max-width: 700px) {
+            body {
+                grid-template-columns: 1fr; /*uma coluna ocupando todo espaço*/
+                grid-template-rows: 80lx 1fr 100px; /*tamanho de cada linhas*/
+                grid-template-areas:
+                /*organização dos elementos*/ 
+                    'navegacao'
+                    'conteudo'
+                    'rodape';
+            }
+
+            header { display: none; } /*faz o cabeçalho sumir*/
+        }
+    </style>
+</head>
+
+<body>
+    <main class="tag">CONTEÚDO</main>
+    <header class="tag">CABEÇALHO</header>
+    <footer class="tag">RODAPÉ</footer>
+    <nav class="tag">NAVEGAÇÃO</nav>
+
+    <script src="js/tag.js"></script>
+</body>
+
+</html>

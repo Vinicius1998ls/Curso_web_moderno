@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Atributos #01</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        <a href='https://www.cod3r.com.br'>Cod3r</a>
+    </div>
+    <div id='primeiro'>
+        <img src='http://files.cod3r.com.br/curso-web/logo-estreita.png' alt='logo'>
+    </div>
+    <script>
+        // seleciona tag = 'img'
+        // seleciona classe = '.img'
+        // seleciona id = '#img'
+        // seleciona propriedade = '[img]'
+
+        // constante img recebe o que dentro da tag img 
+        const img = document.querySelector('img')
+        // imprime o valor do atributo
+        console.log('getAttribute', img.getAttribute('src'))
+        console.log('src', img.src)
+        console.log('["src"]', img['src'])
+        console.log('alt', img.alt)
+
+        console.log('Elemento "img".............')
+        // tipo 1 elemento, tipo 2 atributo
+        console.log('NodeType', img.nodeType)
+        // nome do elemento ou atributo
+        console.log('NodeName', img.nodeName)
+
+
+        const src = img.getAttributeNode('src')
+        console.log('Atributo "src".......')
+        // tipo 1 elemento, tipo 2 atributo
+        console.log('NodeType', src.nodeType)
+        // nome do elemento ou atributo
+        console.log('NodeName', src.nodeName)
+        //mostra o valor dentro
+        console.log('NodeValue', src.nodeValue)
+
+        const link = document.querySelector('a')
+        console.log('Elemento "a".........')
+        console.log('href', link.href)
+        // tipo 3 = texto
+        console.log('firstChild.nodeType', link.firstChild.nodeType)
+        // altera o valor do link
+        link.firstChild.nodeValue = 'Novo Texto'
+
+    </script>
+</body>
+
+</html>

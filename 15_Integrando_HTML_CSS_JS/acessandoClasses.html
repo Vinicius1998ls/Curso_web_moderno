@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='UTF-8'>
+    <title>Acessando Classes</title>
+    <link rel='stylesheet' href='css/estilo.css'>
+</head>
+
+<body class='conteudo exercicio'>
+    <div>
+        Classes
+    </div>
+    <script>
+        // passa as div para contante classes
+        //adiciona os metodos de classList na contante classes
+        const classes = document.querySelector('div').classList
+        //adiciona o estilo destaque
+        classes.add('destaque')
+        classes.remove('destaque')
+        // toggle adiciona o estilo caso não houver ou remove case houver
+        classes.toggle('destaque')
+        // mostra no console se tem o estilo
+        console.log(classes.contains('destaque'))
+        // mostra quantos estilos está aplicado
+        console.log(classes.length)
+        classes.toggle('destaque')
+        console.log(classes.length)
+    </script>
+</body>
+
+</html>
