@@ -1,26 +1,31 @@
 import React, { useState } from "react";
 
-const Sorteio = () => {
-    const [numerosSorteados, setNumerosSorteados] = useState([]);
+export default (props) => {
+    const [numeros, setNumeros] = useState(Array(props.qtdeNumero).fill(0))
 
-    const sortearNumeros = () => {
-        let numeros = [];
-        while (numeros.length < 6) {
-            let novoNumero = Math.floor(Math.random() * 60) + 1;
-            if (!numeros.includes(novoNumero)) {
-                numeros.push(novoNumero);
-            }
-        }
-        setNumerosSorteados(numeros);
-    };
+    function gerarNumerosNaoContido(array) {
+        const min = 1
+        const max = 60
+        const novoNumero = parseInt(Math.random() * (max - min)) + min
+        return array.includes(novoNumero)
+            ? gerarNumerosNaoContido(array) : novoNumero
+    }
 
+    function gerarNumeros() {
+        const novoArray = Array(props.qtdeNumero)
+            .fill(0)
+            .reduce((arrayAtual, elemento) => {
+                const novoNumero = gerarNumerosNaoContido(arrayAtual)
+                return [...arrayAtual, novoNumero]
+            }, [])
+            .sort((a, b) => a - b)
+        setNumeros(novoArray)
+    }
     return (
-        <div>
-            <h2>Mega-sena</h2>
-            <button onClick={sortearNumeros}>Sortear números</button>
-            <p>Números sorteados: <br></br>{numerosSorteados.join(", ")}</p>
-        </div>
-    );
-};
-
-export default Sorteio;
+        <>
+            <h3>Mega</h3>
+            <h4>{numeros.join(' ')}</h4>
+            <button onClick={gerarNumeros}>Gerar número</button>
+        </>
+    )
+}

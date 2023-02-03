@@ -20,7 +20,7 @@ export default (props) => (
 
         <div className='Cards'>
             <Card titulo="#11 Mega-sena" color='#00FF00'>
-                <Mega></Mega>
+                <Mega qtdeNumero={8}></Mega>
             </Card>
             <Card titulo="#10 Contador" color='#293E6A'>
                 <Contador passo={10} valor={100}></Contador>
