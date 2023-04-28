@@ -13,7 +13,7 @@ export default function Layout(props: LayoutProps){
             rounded-md
         `}>
             <Titulo>{props.titulo}</Titulo>
-            <div className="p-1">
+            <div className="p-6">
                 {props.children}
             </div>
         </div>
