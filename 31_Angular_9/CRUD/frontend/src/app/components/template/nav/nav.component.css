@@ -12,3 +12,8 @@
 .sidenav span {
     color: #FFF;
 }
+
+.content {
+    padding: 16px;
+    background-color: #FFF;
+}
