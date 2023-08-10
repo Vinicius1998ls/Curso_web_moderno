@@ -34,6 +34,11 @@
       "name": "Formulario",
       "price": "9.99",
       "id": 7
+    },
+    {
+      "name": "Lapís",
+      "price": "2.50",
+      "id": 8
     }
   ]
 }
