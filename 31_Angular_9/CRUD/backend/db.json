@@ -16,8 +16,8 @@
       "price": 5000.89
     },
     {
-      "name": "Produto de teste",
-      "price": 125.98,
+      "name": "Garrafa 600ml",
+      "price": "12,49",
       "id": 4
     },
     {
