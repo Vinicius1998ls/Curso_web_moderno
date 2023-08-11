@@ -2,7 +2,7 @@
   "products": [
     {
       "id": 1,
-      "name": "Caneta BIC Preta",
+      "name": "Caneta BIC Azul",
       "price": 5.89
     },
     {
@@ -24,6 +24,11 @@
       "name": "Lapís",
       "price": "2.50",
       "id": 8
+    },
+    {
+      "name": "Pen drive 16Gb",
+      "price": "40.99",
+      "id": 9
     }
   ]
 }
