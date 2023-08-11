@@ -3,6 +3,7 @@ import { ProductService } from '../product.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { Product } from '../product.model';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-product-update',
@@ -20,7 +21,7 @@ export class ProductUpdateComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    const id = this.route.snapshot.paramMap.get('id')
+    const id = +this.route.snapshot.paramMap.get('id')
     this.protectService.readById(id).subscribe(product => {
       this.product = product
     })
@@ -35,6 +36,6 @@ export class ProductUpdateComponent implements OnInit {
 
   cancel(): void {
     this.router.navigate(['/products'])
-  }
+  }  
 
 }
