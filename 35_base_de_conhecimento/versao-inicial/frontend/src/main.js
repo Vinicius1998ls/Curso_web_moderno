@@ -4,13 +4,14 @@ import Vue from 'vue'
 import App from './App'
 
 import './config/bootstrap'
+import './config/msgs'
 import store from './config/store'
 import router from './config/router'
 
 Vue.config.productionTip = false
 
 // temporario
-require('axios').defaults.headers.common['Authorization'] = 'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6NiwibmFtZSI6IlRlc3RlIiwiZW1haWwiOiJ0ZXN0ZUB0ZXN0ZS5jb20iLCJhZG1pbiI6ZmFsc2UsImlhdCI6MTY5NTU5NjIyMiwiZXhwIjoxNjk1ODU1NDIyfQ.Co9ttDeSJYdBiEMDd8e47swSOIyqacapu9CetmJJLNU'
+require('axios').defaults.headers.common['Authorization'] = 'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6MSwibmFtZSI6IlZpbmljaXVzIFMiLCJlbWFpbCI6IlZpbmljaXVzQHRlc3RlLmNvbSIsImFkbWluIjp0cnVlLCJpYXQiOjE2OTU2NDUyNjMsImV4cCI6MTY5NTkwNDQ2M30.LoQMZ5v7BevCGTmCDp6auDrcQ8pKbRh-iCwsQzFGf-A'
 
 new Vue({
   store,
