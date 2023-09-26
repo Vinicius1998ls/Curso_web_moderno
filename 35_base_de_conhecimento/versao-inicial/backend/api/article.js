@@ -1,7 +1,7 @@
 const queries = require('./queries')
 
 module.exports = app => {
-    const { existsOrError, noxExistsOrError } = app.api.validation
+    const { existsOrError } = app.api.validation
 
     const save = (req, res) => {
         const article = { ...req.body }
@@ -12,6 +12,7 @@ module.exports = app => {
             existsOrError(article.description, 'Descrição não informada')
             existsOrError(article.categoryId, 'Categoria não informada')
             existsOrError(article.userId, 'Autor não informado')
+            existsOrError(article.content, 'Conteúdo não informado')
         } catch(msg) {
             res.status(400).send(msg)
         }
@@ -20,7 +21,7 @@ module.exports = app => {
             app.db('articles')
                 .update(article)
                 .where({ id: article.id })
-                .then(_ => res.status(204).send(err))
+                .then(_ => res.status(204).send())
                 .catch(err => res.status(500).send(err))
         } else {
             app.db('articles')
@@ -36,9 +37,9 @@ module.exports = app => {
                 .where({ id: req.params.id }).del()
             
             try {
-                existsOrError(rowsDeleted, 'Artigo não foi encontrado')
+                existsOrError(rowsDeleted, 'Artigo não foi encontrado.')
             } catch(msg) {
-                return res.status(400).send(msg)
+                return res.status(400).send(msg)    
             }
 
             res.status(204).send()
@@ -57,7 +58,7 @@ module.exports = app => {
         app.db('articles')
             .select('id', 'name', 'description')
             .limit(limit).offset(page * limit - limit)
-            .then(articles => res.json({ data: articles, count, limit}))
+            .then(articles => res.json({ data: articles, count, limit }))
             .catch(err => res.status(500).send(err))
     }
 
@@ -79,7 +80,7 @@ module.exports = app => {
         const ids = categories.rows.map(c => c.id)
 
         app.db({a: 'articles', u: 'users'})
-            .select('a.id', 'a.name', 'a.description', 'a.imageUrl', { author: 'u.name'})
+            .select('a.id', 'a.name', 'a.description', 'a.imageUrl', { author: 'u.name' })
             .limit(limit).offset(page * limit - limit)
             .whereRaw('?? = ??', ['u.id', 'a.userId'])
             .whereIn('categoryId', ids)
