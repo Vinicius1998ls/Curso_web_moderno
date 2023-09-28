@@ -34,6 +34,7 @@ export default {
 }
 </script>
 
+
 <style>
     .header {
         grid-area: header;
