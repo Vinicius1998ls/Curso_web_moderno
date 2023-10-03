@@ -19,7 +19,7 @@ export default {
     props: {
         title: String,
         hideToggle: Boolean,
-        hideUserDropDown: Boolean
+        hideUserDropdown: Boolean
     },
     computed: {
         icon() {
@@ -34,15 +34,14 @@ export default {
 }
 </script>
 
-
 <style>
     .header {
         grid-area: header;
         background: linear-gradient(to right, #1e469a, #49a7c1);
-        
+
         display: flex;
         justify-content: center;
-        align-items: center;        
+        align-items: center;
     }
 
     .title {
@@ -50,16 +49,16 @@ export default {
         color: #fff;
         font-weight: 100;
         flex-grow: 1;
-        text-align: center; 
+        text-align: center;
     }
 
     .title a {
-        color: #fff;
+        color: #FFF;
         text-decoration: none;
     }
 
     .title a:hover {
-        color: #fff;
+        color: #FFF;
         text-decoration: none;
     }
 
